@@ -1,0 +1,11 @@
+<!--HTML for tabs that are buttons to switch from dashboard to tabular data via routing-->
+<div>
+    <div class="tab">
+        <a [routerLink]="['/dashboard']" routerLinkActive="active">
+            <button class="tablinks">Main View</button>
+        </a>
+        <a [routerLink]="['/tabular']" routerLinkActive = "active">
+            <button class="tablinks">Tabular Data View</button>
+        </a>
+    </div>
+</div>           

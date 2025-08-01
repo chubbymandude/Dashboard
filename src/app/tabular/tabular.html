@@ -1,0 +1,57 @@
+<!--Following HTML content provides input for start & end date in order to filter out the dataset-->
+<div class = "date-div">
+    <p class = "input-start-text">Filter data by date here --></p>
+    <input class = "date-input" type = "date" [(ngModel)] = "startDate">
+    <input class = "date-input" type = "date" [(ngModel)] = "endDate">
+</div>
+<!--Following HTML content provides dropdown of categories that the user can select to filter table-->
+<div class = "dropdown-div">
+    <p class = "dropdown-start-text">Filter data by category here --></p>
+    <button class = "dropdown-button" (click) = "showDropdown = !showDropdown">Filter Category</button>
+    <div class = "dropdown">
+        @if(showDropdown)
+        {
+            <input type="checkbox" [checked]="allSelected" (change)="toggleSelectAll()">Select All<br>
+            @for(key of keys; track key)
+            {
+                 <input type="checkbox" [(ngModel)]="shownColumns[key]" (change)="filter()">{{key}}<br>
+            }
+        }
+    </div>
+    <button type = "button" class = "switch-button" (click) = "goToMainView(mode)">Switch to Main View</button>
+</div>
+<!--Following HTML file builds a table out of the mock_financial_data CSV, both the header and all its content -->
+@defer
+{
+    <div class = "table-div">
+        <table class = "tabular-table">
+            <thead class = "table-header"> 
+                <tr>
+                    @for(key of visible; track key)
+                    {
+                        <th>{{key}}</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @for(row of filtered; track row)
+                {
+                    <tr>
+                        @for(key of visible; track key)
+                        {
+                            <th>{{row[key]}}</th>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+@loading(minimum 1s)
+{
+    <p class = "loading-table">Table will load in just a few moments...</p>
+}
+@error 
+{
+    <p class = "loading-table">Sorry, the tabular view cannot be viewed at this time. Please try later.</p>
+}

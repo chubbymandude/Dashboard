@@ -1,0 +1,62 @@
+<!--Include a child component that displays current date and time-->
+<app-current-date></app-current-date>
+@defer
+{
+<!--HTML for presentation of "tiles" for financial data of July 19, 2022, with the following; icon, worth, & type-->
+<!--Icons are obtained from flaticon.com-->
+<div class = "top-tile-div">
+    <div class = "one-month" (click) = "updateChart('yield_1_month')">
+        <img class = "one-month-icon" src = "https://cdn-icons-png.flaticon.com/256/3966/3966554.png">
+        <p class = "one-month-data">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{data[0]['yield_1_month'] | number : '1.2-2'}}<br>
+        &nbsp;1-Month</p>
+    </div>
+    <div class = "three-month" (click) = "updateChart('yield_3_month')">
+        <img class = "three-month-icon" src = "https://cdn-icons-png.flaticon.com/512/16014/16014208.png">
+        <p class = "three-month-data">&nbsp;&nbsp;&nbsp;&nbsp;{{data[0]['yield_3_month'] | number : '1.2-2'}}<br>3-Month</p>
+    </div>
+    <div class = "one-year" (click) = "updateChart('yield_1_year')">
+        <img class = "one-year-icon" src = "https://cdn-icons-png.flaticon.com/512/3967/3967606.png">
+        <p class = "one-year-data">&nbsp;&nbsp;{{data[0]['yield_1_year'] | number : '1.2-2'}}<br>1-Year</p>
+    </div>
+</div>
+<div class = "bottom-tile-div">
+    <div class = "two-year" (click) = "updateChart('yield_2_year')">
+        <img class = "two-year-icon" src = "https://cdn-icons-png.flaticon.com/512/7185/7185524.png">
+        <p class = "two-year-data">&nbsp;&nbsp;{{data[0]['yield_2_year'] | number : '1.2-2'}}<br>2-Year</p>
+    </div>
+    <div class = "five-year" (click) = "updateChart('yield_5_year')">
+        <img class = "five-year-icon" src = "https://cdn-icons-png.flaticon.com/512/10513/10513167.png">
+        <p class = "five-year-data">&nbsp;&nbsp;{{data[0]['yield_5_year'] | number : '1.2-2'}}<br>5-Year</p>
+    </div>
+    <div class = "ten-year" (click) = "updateChart('yield_10_year')">
+        <img class = "ten-year-icon" src = "https://cdn-icons-png.flaticon.com/512/10266/10266820.png">
+        <p class = "ten-year-data">&nbsp;&nbsp;&nbsp;{{data[0]['yield_10_year'] | number : '1.2-2'}}<br>10-Year</p>
+    </div>
+    <div class = "thirty-year" (click) = "updateChart('yield_30_year')">
+        <img class = "thirty-year-icon" src = "https://cdn-icons-png.flaticon.com/512/10222/10222164.png">
+        <p class = "thirty-year-data">&nbsp;&nbsp;&nbsp;{{data[0]['yield_30_year'] | number : '1.2-2'}}<br>30-Year</p>
+    </div>
+</div>
+<!--Following HTML content provides input for start & end date in order to filter out the dataset-->
+<div class = "date-div">
+    <p class = "input-start-text">Filter data by date here --></p>
+    <input class = "date-input" type = "date" [(ngModel)] = "startDate" (change) = "updateChart(label)">
+    <input class = "date-input" type = "date" [(ngModel)] = "endDate" (change) = "updateChart(label)">
+</div>
+<!--Following HTML provides button to switch to Tabular View, which updates some properties in that webpage-->
+<div class = "switch-div">
+        <button type = "button" class = "switch-button" (click) = "goToTabularView()">Switch to Table View</button>
+</div>
+<!--Line Chart depicting the properties in the tiles above over time-->
+    <div id = "lineChartDiv">
+        <canvas baseChart type = "line" [data] = "lineChartData" [options] = "lineChartOptions"></canvas>
+    </div>
+}
+@loading(minimum 1s)
+{
+    <p class = "loading-chart">Content will load in just a few moments...</p>
+}
+@error 
+{
+    <p class = "loading-chart">Sorry, this content cannot be viewed at this time. Please try later.</p>
+}

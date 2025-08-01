@@ -1,0 +1,25 @@
+.header-tile
+{
+    margin-left: 490px;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.758);
+    color: white;
+    width: 500px;
+    height: 100px;
+    border-radius: 150px;
+    transition: 0.5s
+}
+.header-tile-icon
+{
+    transform: translate(-10px, -1px);
+    margin-left: 50px;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+.header-tile-data
+{
+    transform: translate(5px, 25px);
+    font-size: 22px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

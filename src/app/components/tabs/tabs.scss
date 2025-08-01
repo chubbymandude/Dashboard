@@ -1,0 +1,26 @@
+div
+{
+    display: flex;
+    width: 100%;
+}
+.tablinks 
+{
+    border-width: 5px;
+    border-color: rgb(111, 217, 255);
+    background-color: rgba(0, 134, 164, 0.385);
+    font-family: Georgia;
+    font-size: 18px;
+    color: rgb(19, 68, 82);
+    height: 40px;
+    flex-grow: 1;
+}
+.tablinks:hover 
+{
+    box-shadow: 0px 1px 0px #666666; 
+    background-color: rgba(0, 84, 103, 0.385);
+    cursor: pointer;
+}
+a
+{
+    display: contents;
+}

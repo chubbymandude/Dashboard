@@ -1,0 +1,104 @@
+.table-div
+{
+    transform: translateX(10px);
+    margin-bottom: 10px;
+    display: flex;
+    position: absolute;
+    max-width: fit-content;
+    margin-inline: auto;
+}
+.tabular_table
+{
+    border: "1";
+    border-collapse: collapse; /* collapse borders for cleaner look */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+th, td
+{
+    padding: 8px 12px;  /* replaces cellpadding */
+    border: 1px solid #ccc;
+    text-align: left;
+    background-color: rgb(158, 158, 255);
+}
+.input-start-text
+{
+    float: left;
+    margin-left: 20px;
+    color: darkblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.date-input
+{
+    margin-top: 15px;
+    margin-left: 5px;
+    float: left;
+    pointer-events: none;
+}
+.dropdown-div
+{
+    position: relative;
+    margin-left: 600px;
+    display: flex;
+}
+.dropdown-start-text
+{
+    margin-left: 40px;
+    color: darkblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.dropdown-button
+{
+    margin-left: 5px;
+    margin-top: 15px;
+    border-radius: 10px;
+    background-color: green;
+    color: lightgreen;
+    width: 120px;
+    height: 25px;
+    transition: 0.5s;
+}
+.dropdown-button:hover
+{
+    cursor: pointer;
+    background-color: rgb(0, 68, 0);
+    transition: 0.5s;
+}
+.dropdown
+{
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    z-index: 1;
+    margin-left: 400px;
+    margin-top: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.switch-button
+{
+    position: relative;
+    width: 220px;
+    height: 40px;
+    margin-left: 230px;
+    margin-top: 15px;
+    font-size: 20px;
+    border-radius: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(0, 85, 11);
+    color: rgb(158, 255, 158);
+    z-index: 2;
+    transition: 0.5s;
+}
+.switch-button:hover
+{
+    cursor: pointer;
+    background-color: rgb(0, 45, 6);
+    transition: 0.5s;
+}
+.loading-table
+{
+    margin-left: 30px;
+}
